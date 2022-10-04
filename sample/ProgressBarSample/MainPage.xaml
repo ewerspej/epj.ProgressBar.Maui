@@ -10,12 +10,13 @@
     Spacing="40">
 
     <maui:ProgressBar
+      x:Name="CustomProgressBar"
       HeightRequest="10"
       Margin="15,0"
       Progress="{Binding Path=Value, Source={x:Reference ProgressSlider}}"
       UseRange="{Binding Path=IsChecked, Source={x:Reference RangeCheckBox}}"
-      LowerRangeValue="{Binding Path=Value, Source={x:Reference LowerRangeSlider}}"
-      UpperRangeValue="{Binding Path=Value, Source={x:Reference UpperRangeSlider}}"
+      LowerRangeValue="{Binding Path=LowerValue}"
+      UpperRangeValue="{Binding Path=UpperValue}"
       UseGradient="{Binding Path=IsChecked, Source={x:Reference GradientCheckBox}}"
       ProgressColor="Aquamarine"
       GradientColor="BlueViolet"/>
@@ -41,14 +42,16 @@
       <Slider 
         x:Name="LowerRangeSlider"
         Minimum="0"
-        Maximum="1"/>
+        Maximum="1"
+        Value="{Binding LowerValue, Mode=OneWayToSource}"/>
 
       <Label 
-        Text="Lower Range"/>
+        Text="Upper Range"/>
       <Slider 
         x:Name="UpperRangeSlider"
         Minimum="0"
-        Maximum="1"/>
+        Maximum="1"
+        Value="{Binding UpperValue, Mode=OneWayToSource}"/>
 
       <HorizontalStackLayout>
         <Label 
@@ -57,6 +60,15 @@
         <CheckBox
           x:Name="GradientCheckBox"
           VerticalOptions="Center"/>
+      </HorizontalStackLayout>
+
+      <HorizontalStackLayout>
+        <Label 
+          VerticalOptions="Center"
+          Text="Animate?"/>
+        <CheckBox
+          VerticalOptions="Center"
+          IsChecked="{Binding Animate}"/>
       </HorizontalStackLayout>
     </VerticalStackLayout>
 
