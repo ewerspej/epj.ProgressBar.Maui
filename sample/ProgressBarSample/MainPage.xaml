@@ -15,7 +15,10 @@
       Progress="{Binding Path=Value, Source={x:Reference ProgressSlider}}"
       UseRange="{Binding Path=IsChecked, Source={x:Reference RangeCheckBox}}"
       LowerRangeValue="{Binding Path=Value, Source={x:Reference LowerRangeSlider}}"
-      UpperRangeValue="{Binding Path=Value, Source={x:Reference UpperRangeSlider}}"/>
+      UpperRangeValue="{Binding Path=Value, Source={x:Reference UpperRangeSlider}}"
+      UseGradient="{Binding Path=IsChecked, Source={x:Reference GradientCheckBox}}"
+      ProgressColor="Aquamarine"
+      GradientColor="BlueViolet"/>
 
     <Slider 
       x:Name="ProgressSlider"
@@ -46,6 +49,15 @@
         x:Name="UpperRangeSlider"
         Minimum="0"
         Maximum="1"/>
+
+      <HorizontalStackLayout>
+        <Label 
+          VerticalOptions="Center"
+          Text="Use Gradient?"/>
+        <CheckBox
+          x:Name="GradientCheckBox"
+          VerticalOptions="Center"/>
+      </HorizontalStackLayout>
     </VerticalStackLayout>
 
   </VerticalStackLayout>
