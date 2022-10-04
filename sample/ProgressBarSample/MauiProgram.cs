@@ -1,4 +1,6 @@
-﻿namespace ProgressBarSample;
+﻿using epj.ProgressBar.Maui;
+
+namespace ProgressBarSample;
 
 public static class MauiProgram
 {
@@ -7,6 +9,7 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
+            .UseProgressBar()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
