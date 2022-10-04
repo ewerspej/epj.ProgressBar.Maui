@@ -7,7 +7,9 @@
   <VerticalStackLayout
     VerticalOptions="Center">
 
-    <maui:ProgressBar/>
+    <maui:ProgressBar
+      WidthRequest="500"
+      HeightRequest="20"/>
 
   </VerticalStackLayout>
 
