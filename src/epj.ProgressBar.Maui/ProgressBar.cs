@@ -28,9 +28,30 @@ public class ProgressBar : SKCanvasView
         set => SetValue(BaseColorProperty, value);
     }
 
+    public bool UseRange
+    {
+        get => (bool)GetValue(UseRangeProperty);
+        set => SetValue(UseRangeProperty, value);
+    }
+
+    public float LowerRangeValue
+    {
+        get => (float)GetValue(LowerRangeValueProperty);
+        set => SetValue(LowerRangeValueProperty, value);
+    }
+
+    public float UpperRangeValue
+    {
+        get => (float)GetValue(UpperRangeValueProperty);
+        set => SetValue(UpperRangeValueProperty, value);
+    }
+
     public static readonly BindableProperty ProgressProperty = BindableProperty.Create(nameof(Progress), typeof(float), typeof(ProgressBar), 0.0f, propertyChanged: OnBindablePropertyChanged);
     public static readonly BindableProperty ProgressColorProperty = BindableProperty.Create(nameof(ProgressColor), typeof(Color), typeof(ProgressBar), Colors.BlueViolet, propertyChanged: OnBindablePropertyChanged);
     public static readonly BindableProperty BaseColorProperty = BindableProperty.Create(nameof(BaseColor), typeof(Color), typeof(ProgressBar), Colors.LightGray, propertyChanged: OnBindablePropertyChanged);
+    public static readonly BindableProperty UseRangeProperty = BindableProperty.Create(nameof(UseRange), typeof(bool), typeof(ProgressBar), false, propertyChanged: OnBindablePropertyChanged);
+    public static readonly BindableProperty LowerRangeValueProperty = BindableProperty.Create(nameof(LowerRangeValue), typeof(float), typeof(ProgressBar), 0.0f, propertyChanged: OnBindablePropertyChanged);
+    public static readonly BindableProperty UpperRangeValueProperty = BindableProperty.Create(nameof(UpperRangeValue), typeof(float), typeof(ProgressBar), 0.0f, propertyChanged: OnBindablePropertyChanged);
 
     private static void OnBindablePropertyChanged(BindableObject bindable, object oldValue, object newValue)
     {
@@ -72,7 +93,11 @@ public class ProgressBar : SKCanvasView
     private void DrawProgress()
     {
         using var progressPath = new SKPath();
-        var progressRect = new SKRect(0, 0, _info.Width * Progress, _info.Height);
+
+        var progressRect = UseRange 
+            ? new SKRect(_info.Width * LowerRangeValue, 0, _info.Width * UpperRangeValue, _info.Height) 
+            : new SKRect(0, 0, _info.Width * Progress, _info.Height);
+
         progressPath.AddRect(progressRect);
         _canvas.DrawPath(progressPath, new SKPaint
         {

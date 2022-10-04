@@ -12,12 +12,41 @@
     <maui:ProgressBar
       HeightRequest="10"
       Margin="15,0"
-      Progress="{Binding Path=Value, Source={x:Reference ProgressSlider}}"/>
+      Progress="{Binding Path=Value, Source={x:Reference ProgressSlider}}"
+      UseRange="{Binding Path=IsChecked, Source={x:Reference RangeCheckBox}}"
+      LowerRangeValue="{Binding Path=Value, Source={x:Reference LowerRangeSlider}}"
+      UpperRangeValue="{Binding Path=Value, Source={x:Reference UpperRangeSlider}}"/>
 
     <Slider 
       x:Name="ProgressSlider"
       Minimum="0"
       Maximum="1"/>
+
+    <VerticalStackLayout
+      Spacing="10">
+      <HorizontalStackLayout>
+        <Label 
+          VerticalOptions="Center"
+          Text="Use Range?"/>
+        <CheckBox
+          x:Name="RangeCheckBox"
+          VerticalOptions="Center"/>
+      </HorizontalStackLayout>
+
+      <Label 
+        Text="Lower Range"/>
+      <Slider 
+        x:Name="LowerRangeSlider"
+        Minimum="0"
+        Maximum="1"/>
+
+      <Label 
+        Text="Lower Range"/>
+      <Slider 
+        x:Name="UpperRangeSlider"
+        Minimum="0"
+        Maximum="1"/>
+    </VerticalStackLayout>
 
   </VerticalStackLayout>
 
