@@ -10,12 +10,26 @@ public class ProgressBar : SKCanvasView
     private SKRect _drawRect;
     private SKImageInfo _info;
 
+    public float Progress
+    {
+        get => (float)GetValue(ProgressProperty);
+        set => SetValue(ProgressProperty, value);
+    }
+
+    public Color ProgressColor
+    {
+        get => (Color)GetValue(ProgressColorProperty);
+        set => SetValue(ProgressColorProperty, value);
+    }
+
     public Color BaseColor
     {
         get => (Color)GetValue(BaseColorProperty);
         set => SetValue(BaseColorProperty, value);
     }
 
+    public static readonly BindableProperty ProgressProperty = BindableProperty.Create(nameof(Progress), typeof(float), typeof(ProgressBar), 0.0f, propertyChanged: OnBindablePropertyChanged);
+    public static readonly BindableProperty ProgressColorProperty = BindableProperty.Create(nameof(ProgressColor), typeof(Color), typeof(ProgressBar), Colors.BlueViolet, propertyChanged: OnBindablePropertyChanged);
     public static readonly BindableProperty BaseColorProperty = BindableProperty.Create(nameof(BaseColor), typeof(Color), typeof(ProgressBar), Colors.LightGray, propertyChanged: OnBindablePropertyChanged);
 
     private static void OnBindablePropertyChanged(BindableObject bindable, object oldValue, object newValue)
@@ -40,6 +54,7 @@ public class ProgressBar : SKCanvasView
         _drawRect = new SKRect(0, 0, _info.Width, _info.Height);
 
         DrawBase();
+        DrawProgress();
     }
 
     private void DrawBase()
@@ -50,6 +65,19 @@ public class ProgressBar : SKCanvasView
         {
             Style = SKPaintStyle.Fill,
             Color = BaseColor.ToSKColor(),
+            IsAntialias = true
+        });
+    }
+
+    private void DrawProgress()
+    {
+        using var progressPath = new SKPath();
+        var progressRect = new SKRect(0, 0, _info.Width * Progress, _info.Height);
+        progressPath.AddRect(progressRect);
+        _canvas.DrawPath(progressPath, new SKPaint
+        {
+            Style = SKPaintStyle.Fill,
+            Color = ProgressColor.ToSKColor(),
             IsAntialias = true
         });
     }

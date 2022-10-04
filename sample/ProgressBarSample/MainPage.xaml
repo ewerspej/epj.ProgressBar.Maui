@@ -3,13 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maui="clr-namespace:epj.ProgressBar.Maui;assembly=epj.ProgressBar.Maui"
              x:Class="ProgressBarSample.MainPage">
-  
+
   <VerticalStackLayout
-    VerticalOptions="Center">
+    VerticalOptions="Center"
+    Padding="20,0"
+    Spacing="40">
 
     <maui:ProgressBar
-      WidthRequest="500"
-      HeightRequest="20"/>
+      HeightRequest="10"
+      Margin="15,0"
+      Progress="{Binding Path=Value, Source={x:Reference ProgressSlider}}"/>
+
+    <Slider 
+      x:Name="ProgressSlider"
+      Minimum="0"
+      Maximum="1"/>
 
   </VerticalStackLayout>
 
