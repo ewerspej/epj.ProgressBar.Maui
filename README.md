@@ -1,5 +1,6 @@
 # epj.ProgressBar.Maui
 ![License](https://img.shields.io/github/license/ewerspej/epj.ProgressBar.Maui)
+[![Nuget](https://img.shields.io/nuget/v/epj.ProgressBar.Maui)](https://www.nuget.org/packages/epj.ProgressBar.Maui/)
 
 A customizable Progress Bar supporting Indeterminate states and Progress animations
 
