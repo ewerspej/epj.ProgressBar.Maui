@@ -4,38 +4,66 @@
              xmlns:maui="clr-namespace:epj.ProgressBar.Maui;assembly=epj.ProgressBar.Maui"
              x:Class="ProgressBarSample.MainPage">
 
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Color x:Key="ProgressColor">DeepSkyBlue</Color>
+      <Color x:Key="GradientColor">GreenYellow</Color>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
   <VerticalStackLayout
     VerticalOptions="Center"
     Padding="20,0"
-    Spacing="40">
+    Spacing="50">
 
-    <maui:ProgressBar
-      x:Name="CustomProgressBar"
-      HeightRequest="10"
-      Margin="15,0"
-      Progress="{Binding Path=Value, Source={x:Reference ProgressSlider}}"
-      UseRange="{Binding Path=IsChecked, Source={x:Reference RangeCheckBox}}"
-      LowerRangeValue="{Binding Path=LowerValue}"
-      UpperRangeValue="{Binding Path=UpperValue}"
-      UseGradient="{Binding Path=IsChecked, Source={x:Reference GradientCheckBox}}"
-      ProgressColor="Aquamarine"
-      GradientColor="BlueViolet"/>
+    <HorizontalStackLayout>
+      <Label 
+        VerticalOptions="Center"
+        Text="Use Gradient?"/>
+      <CheckBox
+        x:Name="GradientCheckBox"
+        VerticalOptions="Center"/>
+    </HorizontalStackLayout>
 
-    <Slider 
-      x:Name="ProgressSlider"
-      Minimum="0"
-      Maximum="1"/>
-
+    <!-- Simple usage -->
     <VerticalStackLayout
-      Spacing="10">
-      <HorizontalStackLayout>
-        <Label 
-          VerticalOptions="Center"
-          Text="Use Range?"/>
-        <CheckBox
-          x:Name="RangeCheckBox"
-          VerticalOptions="Center"/>
-      </HorizontalStackLayout>
+      Spacing="20">
+
+      <Label Text="Simple usage:" FontSize="Large"></Label>
+
+      <maui:ProgressBar
+        HeightRequest="5"
+        Margin="15,0"
+        Progress="{Binding Path=Value, Source={x:Reference ProgressSlider}}"
+        UseRange="False"
+        UseGradient="{Binding Path=IsChecked, Source={x:Reference GradientCheckBox}}"
+        ProgressColor="{StaticResource ProgressColor}"
+        GradientColor="{StaticResource GradientColor}"/>
+
+      <Slider 
+        x:Name="ProgressSlider"
+        Minimum="0"
+        Maximum="1"
+        Value="0.25"/>
+
+    </VerticalStackLayout>
+
+    <!-- Ranged usage -->
+    <VerticalStackLayout
+      Spacing="20">
+
+      <Label Text="Ranged usage:" FontSize="Large"></Label>
+
+      <maui:ProgressBar
+        x:Name="RangeProgressBar"
+        HeightRequest="5"
+        Margin="15,0"
+        UseRange="True"
+        LowerRangeValue="{Binding Path=Value, Source={x:Reference LowerRangeSlider}}"
+        UpperRangeValue="{Binding Path=Value, Source={x:Reference UpperRangeSlider}}"
+        UseGradient="{Binding Path=IsChecked, Source={x:Reference GradientCheckBox}}"
+        ProgressColor="{StaticResource ProgressColor}"
+        GradientColor="{StaticResource GradientColor}"/>
 
       <Label 
         Text="Lower Range"/>
@@ -43,7 +71,7 @@
         x:Name="LowerRangeSlider"
         Minimum="0"
         Maximum="1"
-        Value="{Binding LowerValue, Mode=OneWayToSource}"/>
+        Value="0.4"/>
 
       <Label 
         Text="Upper Range"/>
@@ -51,27 +79,27 @@
         x:Name="UpperRangeSlider"
         Minimum="0"
         Maximum="1"
-        Value="{Binding UpperValue, Mode=OneWayToSource}"/>
+        Value="0.75"/>
 
-      <HorizontalStackLayout>
-        <Label 
-          VerticalOptions="Center"
-          Text="Use Gradient?"/>
-        <CheckBox
-          x:Name="GradientCheckBox"
-          VerticalOptions="Center"/>
-      </HorizontalStackLayout>
-
-      <HorizontalStackLayout>
-        <Label 
-          VerticalOptions="Center"
-          Text="Animate?"/>
-        <CheckBox
-          VerticalOptions="Center"
-          IsChecked="{Binding Animate}"/>
-      </HorizontalStackLayout>
     </VerticalStackLayout>
 
+    <!-- Animated usage -->
+    <VerticalStackLayout
+      Spacing="10">
+
+      <Label Text="With animation:" FontSize="Large"></Label>
+
+      <maui:ProgressBar
+        x:Name="AnimatedProgressBar"
+        HeightRequest="5"
+        Margin="15,0"
+        UseRange="True"
+        UseGradient="{Binding Path=IsChecked, Source={x:Reference GradientCheckBox}}"
+        ProgressColor="{StaticResource ProgressColor}"
+        GradientColor="{StaticResource GradientColor}"/>
+
+    </VerticalStackLayout>
+    
   </VerticalStackLayout>
 
 </ContentPage>
