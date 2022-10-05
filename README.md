@@ -23,7 +23,7 @@ Since the control reacts to value changes (Progress, Ranges, Colors), it can be 
 
 This is just a preview, the styling of the control can be customized. The animation is not part of the control.
 <div>
-    <img align="top" src="sample1.gif" width="280"/>
+    <img align="top" src="sample0.png" width="280"/>
     <img align="top" src="sample2.gif" width="280"/>
 </div>
 <br/>
