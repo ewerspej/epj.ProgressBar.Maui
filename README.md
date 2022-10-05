@@ -2,7 +2,7 @@
 ![License](https://img.shields.io/github/license/ewerspej/epj.ProgressBar.Maui)
 [![Nuget](https://img.shields.io/nuget/v/epj.ProgressBar.Maui)](https://www.nuget.org/packages/epj.ProgressBar.Maui/)
 
-A customizable Progress Bar supporting Indeterminate states and Progress animations
+A customizable Progress Bar for .NET MAUI
 
 ## Summary
 
@@ -36,9 +36,9 @@ This is just a preview, the styling of the control can be customized. The animat
 In MauiProgram.cs, add a call to *UseProgressBar()* on the builder object:
 
 ```c#
-using epj.RadialDial.Maui;
+using epj.ProgressBar.Maui;
 
-namespace RadialDialSample;
+namespace ProgressBarSample;
 
 public static class MauiProgram
 {
@@ -67,7 +67,7 @@ public static class MauiProgram
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maui="clr-namespace:epj.ProgressBar.Maui;assembly=epj.ProgressBar.Maui"
-             x:Class="RadialDialSample.MainPage">
+             x:Class="ProgressBarSample.MainPage">
   <VerticalStackLayout
     VerticalOptions="Center">
 
