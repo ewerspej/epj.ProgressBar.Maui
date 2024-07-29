@@ -16,7 +16,7 @@
     Padding="20,0"
     Spacing="50">
 
-    <HorizontalStackLayout>
+    <HorizontalStackLayout Spacing="6">
       <Label 
         VerticalOptions="Center"
         Text="Use Gradient?"/>
@@ -36,6 +36,7 @@
         Margin="15,0"
         Progress="{Binding Path=Value, Source={x:Reference ProgressSlider}}"
         UseRange="False"
+        RoundCaps="True"
         UseGradient="{Binding Path=IsChecked, Source={x:Reference GradientCheckBox}}"
         ProgressColor="{StaticResource ProgressColor}"
         GradientColor="{StaticResource GradientColor}"/>
@@ -59,6 +60,7 @@
         HeightRequest="5"
         Margin="15,0"
         UseRange="True"
+        RoundCaps="True"
         LowerRangeValue="{Binding Path=Value, Source={x:Reference LowerRangeSlider}}"
         UpperRangeValue="{Binding Path=Value, Source={x:Reference UpperRangeSlider}}"
         UseGradient="{Binding Path=IsChecked, Source={x:Reference GradientCheckBox}}"
@@ -94,6 +96,7 @@
         HeightRequest="5"
         Margin="15,0"
         UseRange="True"
+        RoundCaps="True"
         UseGradient="{Binding Path=IsChecked, Source={x:Reference GradientCheckBox}}"
         ProgressColor="{StaticResource ProgressColor}"
         GradientColor="{StaticResource GradientColor}"/>

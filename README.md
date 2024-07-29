@@ -97,6 +97,7 @@ Most of these properties are bindable for MVVM goodness. If something is missing
 | Color      | ProgressColor        | The color of the progress bar                                           | BlueViolet    |
 | Color      | GradientColor        | The gradient color which will be used on the lower end when set         | BlueViolet    |
 | Color      | BaseColor            | The color for the base of the progress bar                              | LightGray     |
+| Boolean    | RoundCaps            | Whether or not to round the caps of the progress bar (experimental)     | false         |
 
 
 ## Tips & Tricks

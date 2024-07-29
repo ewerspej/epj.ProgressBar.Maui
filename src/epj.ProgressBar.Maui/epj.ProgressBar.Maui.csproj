@@ -15,7 +15,7 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
-    <Version>1.0.1</Version>
+    <Version>1.0.2-pre</Version>
 		<Title>Progress Bar for MAUI</Title>
 		<Authors>ewerspej</Authors>
 		<Description>A simple progress bar implementation for MAUI that offers regular linear progress, value range and color gradients.</Description>
@@ -47,11 +47,7 @@
 	<ItemGroup>
 	  <PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.8" />
 	  <PackageReference Include="SkiaSharp.Views.Maui.Core" Version="2.88.8" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <PackageReference Update="Microsoft.Maui.Controls" Version="8.0.60" />
-	  <PackageReference Update="Microsoft.Maui.Controls.Compatibility" Version="8.0.60" />
+	  <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.61" />
 	</ItemGroup>
 
 </Project>

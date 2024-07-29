@@ -58,6 +58,12 @@ public class ProgressBar : SKCanvasView
         set => SetValue(UseGradientProperty, value);
     }
 
+    public bool RoundCaps
+    {
+        get => (bool)GetValue(RoundCapsProperty);
+        set => SetValue(RoundCapsProperty, value);
+    }
+
     public static readonly BindableProperty ProgressProperty = BindableProperty.Create(nameof(Progress), typeof(float), typeof(ProgressBar), 0.0f, propertyChanged: OnBindablePropertyChanged);
     public static readonly BindableProperty ProgressColorProperty = BindableProperty.Create(nameof(ProgressColor), typeof(Color), typeof(ProgressBar), Colors.BlueViolet, propertyChanged: OnBindablePropertyChanged);
     public static readonly BindableProperty GradientColorProperty = BindableProperty.Create(nameof(GradientColor), typeof(Color), typeof(ProgressBar), Colors.BlueViolet, propertyChanged: OnBindablePropertyChanged);
@@ -66,6 +72,7 @@ public class ProgressBar : SKCanvasView
     public static readonly BindableProperty LowerRangeValueProperty = BindableProperty.Create(nameof(LowerRangeValue), typeof(float), typeof(ProgressBar), 0.0f, propertyChanged: OnBindablePropertyChanged);
     public static readonly BindableProperty UpperRangeValueProperty = BindableProperty.Create(nameof(UpperRangeValue), typeof(float), typeof(ProgressBar), 0.0f, propertyChanged: OnBindablePropertyChanged);
     public static readonly BindableProperty UseGradientProperty = BindableProperty.Create(nameof(UseGradient), typeof(bool), typeof(ProgressBar), false, propertyChanged: OnBindablePropertyChanged);
+    public static readonly BindableProperty RoundCapsProperty = BindableProperty.Create(nameof(RoundCaps), typeof(bool), typeof(ProgressBar), false, propertyChanged: OnBindablePropertyChanged);
 
     private static void OnBindablePropertyChanged(BindableObject bindable, object oldValue, object newValue)
     {
@@ -95,7 +102,17 @@ public class ProgressBar : SKCanvasView
     private void DrawBase()
     {
         using var basePath = new SKPath();
-        basePath.AddRect(_drawRect);
+
+        if (RoundCaps)
+        {
+            basePath.AddRoundRect(_drawRect, _drawRect.Height / 2, _drawRect.Height / 2);
+        }
+        else
+        {
+            basePath.AddRect(_drawRect);
+        }
+
+        _canvas.ClipPath(basePath);
         _canvas.DrawPath(basePath, new SKPaint
         {
             Style = SKPaintStyle.Fill,
@@ -112,7 +129,14 @@ public class ProgressBar : SKCanvasView
             ? new SKRect(_info.Width * LowerRangeValue, 0, _info.Width * UpperRangeValue, _info.Height)
             : new SKRect(0, 0, _info.Width * Progress, _info.Height);
 
-        progressPath.AddRect(progressRect);
+        if (RoundCaps)
+        {
+            progressPath.AddRoundRect(progressRect, progressRect.Height / 2, progressRect.Height / 2);
+        }
+        else
+        {
+            progressPath.AddRect(progressRect);
+        }
 
         using var progressPaint = new SKPaint
         {
