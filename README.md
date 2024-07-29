@@ -108,6 +108,13 @@ There is a sample implementation for an indeterminate progress animation in the 
 ### Size ###
 The size (width and height) can simply be set using *WidthRequest* and *HeightRequest*, there is no separate size property in the control.
 
-
 ## Notes
 * Uses SkiaSharp for MAUI
+
+# Support
+
+You can support this project by starring it on GitHub, sharing it with others or contributing to it. If you have any questions, feedback or ideas, feel free to open an issue or reach out to me.
+
+Additionally, you can support me by buying me a coffee or by becoming a sponsor.
+
+<a href="https://www.buymeacoffee.com/ewerspej" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" alt="Buy Me A Coffee" height="41" width="174"></a>
