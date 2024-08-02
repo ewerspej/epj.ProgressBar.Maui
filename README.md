@@ -10,13 +10,14 @@ A simple progress bar implementation for MAUI that offers regular linear progres
 
 ## Platforms
 
-Supported are **Android** and **iOS**, other platforms (incl. Windows and MacCatalyst) have not been tested, but may work anyway.
+Supported are **Android**, **iOS** and **Windows**. MacCatalyst has not been tested, but may work anyway.
 
 ## Highlights
 
 * Linear Progress
 * Lower/Upper Progress Range
 * Color Gradient
+* Round Caps ***(new)***
 
 Since the control reacts to value changes (Progress, Ranges, Colors), it can be animated (e.g. for intedeterminate states).
 
@@ -97,7 +98,7 @@ Most of these properties are bindable for MVVM goodness. If something is missing
 | Color      | ProgressColor        | The color of the progress bar                                           | BlueViolet    |
 | Color      | GradientColor        | The gradient color which will be used on the lower end when set         | BlueViolet    |
 | Color      | BaseColor            | The color for the base of the progress bar                              | LightGray     |
-| Boolean    | RoundCaps            | Whether or not to round the caps of the progress bar (experimental)     | false         |
+| Boolean    | RoundCaps            | Whether or not to round the caps of the progress bar                    | false         |
 
 
 ## Tips & Tricks
