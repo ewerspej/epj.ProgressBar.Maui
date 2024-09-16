@@ -90,7 +90,6 @@ csharp_style_throw_expression = true:suggestion
 csharp_style_conditional_delegate_call = true:suggestions
 
 # Naming rules
-
 dotnet_diagnostic.IDE1006.severity = warning
 
 ## Public Fields are kept Pascal Case
@@ -123,7 +122,7 @@ dotnet_naming_symbols.static_fields.required_modifiers = static
 dotnet_naming_symbols.static_fields.applicable_accessibilities = private, protected, protected_internal, private_protected
 
 dotnet_naming_style.static_field_style.capitalization = camel_case
-dotnet_naming_style.static_field_style.required_prefix = 
+dotnet_naming_style.static_field_style.required_prefix = _
 
 # Modifier preferences
 csharp_prefer_static_local_function = true:suggestion
