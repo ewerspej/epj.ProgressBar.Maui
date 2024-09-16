@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:maui="clr-namespace:epj.ProgressBar.Maui;assembly=epj.ProgressBar.Maui"
-             x:Class="ProgressBarSample.MainPage">
+<ContentPage
+  x:Class="ProgressBarSample.MainPage"
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:maui="clr-namespace:epj.ProgressBar.Maui;assembly=epj.ProgressBar.Maui">
 
   <ContentPage.Resources>
     <ResourceDictionary>
@@ -12,97 +13,88 @@
   </ContentPage.Resources>
 
   <VerticalStackLayout
-    VerticalOptions="Center"
     Padding="20,0"
+    VerticalOptions="Center"
     Spacing="50">
 
     <HorizontalStackLayout Spacing="6">
-      <Label 
-        VerticalOptions="Center"
-        Text="Use Gradient?"/>
-      <CheckBox
-        x:Name="GradientCheckBox"
-        VerticalOptions="Center"/>
+      <Label VerticalOptions="Center" Text="Use Gradient?" />
+      <CheckBox x:Name="GradientCheckBox" VerticalOptions="Center" />
     </HorizontalStackLayout>
 
     <!-- Simple usage -->
-    <VerticalStackLayout
-      Spacing="20">
+    <VerticalStackLayout Spacing="20">
 
-      <Label Text="Simple usage:" FontSize="Large"></Label>
+      <Label Text="Simple usage:" FontSize="Large" />
 
       <maui:ProgressBar
-        HeightRequest="5"
         Margin="15,0"
+        HeightRequest="5"
         Progress="{Binding Path=Value, Source={x:Reference ProgressSlider}}"
         UseRange="False"
         RoundCaps="True"
         UseGradient="{Binding Path=IsChecked, Source={x:Reference GradientCheckBox}}"
         ProgressColor="{StaticResource ProgressColor}"
-        GradientColor="{StaticResource GradientColor}"/>
+        GradientColor="{StaticResource GradientColor}" />
 
-      <Slider 
+      <Slider
         x:Name="ProgressSlider"
         Minimum="0"
         Maximum="1"
-        Value="0.25"/>
+        Value="0.25" />
 
     </VerticalStackLayout>
 
     <!-- Ranged usage -->
-    <VerticalStackLayout
-      Spacing="20">
+    <VerticalStackLayout Spacing="20">
 
-      <Label Text="Ranged usage:" FontSize="Large"></Label>
+      <Label Text="Ranged usage:" FontSize="Large" />
 
       <maui:ProgressBar
         x:Name="RangeProgressBar"
-        HeightRequest="5"
         Margin="15,0"
+        HeightRequest="5"
         UseRange="True"
         RoundCaps="True"
         LowerRangeValue="{Binding Path=Value, Source={x:Reference LowerRangeSlider}}"
         UpperRangeValue="{Binding Path=Value, Source={x:Reference UpperRangeSlider}}"
         UseGradient="{Binding Path=IsChecked, Source={x:Reference GradientCheckBox}}"
         ProgressColor="{StaticResource ProgressColor}"
-        GradientColor="{StaticResource GradientColor}"/>
+        GradientColor="{StaticResource GradientColor}" />
 
-      <Label 
-        Text="Lower Range"/>
-      <Slider 
+      <Label Text="Lower Range" />
+      <Slider
         x:Name="LowerRangeSlider"
         Minimum="0"
         Maximum="1"
-        Value="0.4"/>
+        Value="0.4" />
 
-      <Label 
-        Text="Upper Range"/>
-      <Slider 
+      <Label Text="Upper Range" />
+      <Slider
         x:Name="UpperRangeSlider"
         Minimum="0"
         Maximum="1"
-        Value="0.75"/>
+        Value="0.75" />
 
     </VerticalStackLayout>
 
     <!-- Animated usage -->
-    <VerticalStackLayout
-      Spacing="10">
+    <VerticalStackLayout Spacing="10">
 
-      <Label Text="With animation:" FontSize="Large"></Label>
+      <Label Text="With animation:" FontSize="Large" />
 
       <maui:ProgressBar
         x:Name="AnimatedProgressBar"
-        HeightRequest="5"
         Margin="15,0"
+        HeightRequest="5"
         UseRange="True"
         RoundCaps="True"
         UseGradient="{Binding Path=IsChecked, Source={x:Reference GradientCheckBox}}"
         ProgressColor="{StaticResource ProgressColor}"
-        GradientColor="{StaticResource GradientColor}"/>
+        GradientColor="{StaticResource GradientColor}" />
 
     </VerticalStackLayout>
-    
+
   </VerticalStackLayout>
 
 </ContentPage>

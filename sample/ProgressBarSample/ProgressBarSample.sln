@@ -7,6 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgressBarSample", "Progre
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "epj.ProgressBar.Maui", "..\..\src\epj.ProgressBar.Maui\epj.ProgressBar.Maui.csproj", "{5ED245E1-B9FB-4E34-8792-5B465F6BA31E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F8BF410B-33FC-4099-A527-1CB3A51B136B}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\.editorconfig = ..\..\.editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
